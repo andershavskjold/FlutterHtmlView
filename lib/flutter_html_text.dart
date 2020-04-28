@@ -62,6 +62,7 @@ class HtmlText extends StatelessWidget {
 
     TextSpan span = this._stackToTextSpan(nodes, context);
 
+    final scale = MediaQuery.of(context).textScaleFactor;
 
     RichText contents;
     if (overflow != null && maxLines != null) {
@@ -70,11 +71,13 @@ class HtmlText extends StatelessWidget {
         softWrap: true,
         overflow: this.overflow,
         maxLines: this.maxLines,
+        textScaleFactor: scale,
       );
     } else {
       contents = new RichText(
         text: span,
         softWrap: true,
+        textScaleFactor: scale,
       );
     }
 
